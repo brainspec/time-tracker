@@ -9,4 +9,8 @@ class TimeEntry
   belongs_to :user
 
   validates :hours, presence: true
+
+  def hours=(h)
+    write_attribute :hours, (h.is_a?(String) ? (h.to_hours || h) : h)
+  end
 end

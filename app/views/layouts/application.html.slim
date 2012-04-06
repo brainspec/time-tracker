@@ -13,7 +13,7 @@ html
           .nav-collapse
             - if current_user
               ul.nav.pull-right
-                li
+                li.total-posted-time.badge.badge-success
                   | Today posted time:
                   = " #{current_user.today_total_time} hours"
                 li = link_to 'Sign out', session_path, method: 'delete'

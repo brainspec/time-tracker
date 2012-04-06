@@ -1,5 +1,5 @@
 TimeTracker::Application.routes.draw do
-  match '/sessions/new', to: 'sessions#new', as: 'new_user_session'
+  resource :session, only: %w[new destroy]
   match '/auth/:provider/callback', to: 'sessions#create'
 
   root to: 'home#index'

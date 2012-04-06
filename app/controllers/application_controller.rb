@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   private
 
   def require_user
-    @current_user = User.find(session[:user_id])
-    redirect_to new_user_session_path unless @current_user
+    @current_user = session[:user_id] && User.find(session[:user_id])
+    redirect_to new_session_path unless @current_user
   end
 end

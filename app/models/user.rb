@@ -6,6 +6,8 @@ class User
 
   field :token, type: String
 
+  has_many :time_entries
+
   class << self
     def find_or_create_by_auth_hash(auth_hash)
       User.find_or_initialize_by(uid: auth_hash.uid).tap do |user|

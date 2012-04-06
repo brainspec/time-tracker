@@ -5,4 +5,6 @@ class TimeEntry
   field :todo_id, :type => Integer
   field :hours, :type => Float
   field :comment, :type => String
+
+  belongs_to :user
 end

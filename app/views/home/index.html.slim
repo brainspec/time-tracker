@@ -2,4 +2,13 @@
   h3 = link_to list.name, basecamp_url(list.url)
   ul
     - list.assigned_todos.each do |todo|
-      li = todo.content
+      li.todo id="todo-#{todo.id}" data-id="#{todo.id}"
+        = todo.content
+        a.btn.post-time Post time
+
+#time-entry-form
+  = simple_form_for current_user.time_entries.build, remote: true do |f|
+    = f.input :todo_id, as: 'hidden'
+    = f.input :hours
+    = f.button :submit, class: 'btn-primary'
+    a.btn.close href="#" Cancel

@@ -7,8 +7,4 @@
         a.btn.post-time Post time
 
 #time-entry-form
-  = simple_form_for current_user.time_entries.build, remote: true do |f|
-    = f.input :todo_id, as: 'hidden'
-    = f.input :hours
-    = f.button :submit, class: 'btn-primary'
-    a.btn.close href="#" Cancel
+  = render 'time_entries/form', time_entry: current_user.time_entries.build

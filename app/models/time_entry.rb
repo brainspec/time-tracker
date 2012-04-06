@@ -7,4 +7,6 @@ class TimeEntry
   field :comment, :type => String
 
   belongs_to :user
+
+  validates :hours, presence: true
 end

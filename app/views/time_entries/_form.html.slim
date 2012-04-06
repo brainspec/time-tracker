@@ -1,0 +1,5 @@
+= simple_form_for time_entry, remote: true do |f|
+  = f.input :todo_id, as: 'hidden'
+  = f.input :hours
+  = f.button :submit, class: 'btn-primary'
+  a.btn.close href="#" Cancel

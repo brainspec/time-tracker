@@ -9,8 +9,11 @@ html
     .navbar.navbar-fixed-top
       .navbar-inner
         .container
-          = link_to 'TimeTracker', root_path, class: 'brand'
+          = link_to 'Time Tracker', root_path, class: 'brand'
           .nav-collapse
+            - if current_user
+              ul.nav.pull-right
+                li = link_to 'Sign out', session_path, method: 'delete'
 
     .container
       - if notice

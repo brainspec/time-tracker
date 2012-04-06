@@ -1,8 +1,5 @@
-= button_to 'Sign out', session_path, method: 'delete', class: 'btn'
-
-- if current_user
-  - @todo_lists.each do |list|
-    h3 = list.name
-    ul
-      - list.assigned_todos.each do |todo|
-        li= todo.content
+- @todo_lists.each do |list|
+  h3 = link_to list.name, basecamp_url(list.url)
+  ul
+    - list.assigned_todos.each do |todo|
+      li = todo.content

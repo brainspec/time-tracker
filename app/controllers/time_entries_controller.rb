@@ -15,6 +15,6 @@ class TimeEntriesController < ApplicationController
   private
 
   def time_entry_params
-    params[:time_entry].slice(:todo_id, :hours, :comment)
+    params[:time_entry].slice(:todo_id, :hours, :comment, :title)
   end
 end

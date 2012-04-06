@@ -2,10 +2,12 @@ class TimeEntry
   include Mongoid::Document
   include Mongoid::Timestamps
 
-  field :user_id, :type => Integer
-  field :todo_id, :type => Integer
-  field :hours, :type => Float
-  field :comment, :type => String
+  field :user_id, type: Integer
+  field :todo_id, type: Integer
+  field :hours,   type: Float
+  field :comment, type: String
+
+  field :title, type: String
 
   belongs_to :user
 

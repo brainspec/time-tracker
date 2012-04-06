@@ -31,7 +31,12 @@ gem 'faraday_middleware'
 gem 'simple_form'
 
 group :development, :test do
+  gem 'fabrication'
   gem 'rspec-rails'
+end
+
+group :test do
+  gem 'database_cleaner'
 end
 
 # To use ActiveModel has_secure_password

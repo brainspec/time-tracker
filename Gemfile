@@ -27,6 +27,8 @@ gem 'slim'
 gem 'faraday'
 gem 'faraday_middleware'
 
+gem 'simple_form'
+
 group :development, :test do
   gem 'rspec-rails'
 end

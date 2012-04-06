@@ -1,6 +1,10 @@
 class SessionsController < ApplicationController
+  skip_before_filter :require_user
+
   def create
-    raise auth_hash.to_yaml
+    user = User.find_or_create_by_auth_hash(auth_hash)
+    session[:user_id] = user.id
+    redirect_to root_path
   end
 
   private

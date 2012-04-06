@@ -22,6 +22,8 @@ gem 'bson_ext', '~> 1.5'
 
 gem 'omniauth-37signals'
 
+gem 'slim'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

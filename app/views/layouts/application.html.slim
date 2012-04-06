@@ -8,11 +8,11 @@ html
   body
     .navbar.navbar-fixed-top
       .navbar-inner
-        .container-fluid
+        .container
           = link_to 'TimeTracker', root_path, class: 'brand'
           .nav-collapse
 
-    .container-fluid
+    .container
       - if notice
         div.alert.alert-success
           a.close data-dismiss="alert" href="#" &times;

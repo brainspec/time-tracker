@@ -3,8 +3,11 @@
   ul
     - list.assigned_todos.each do |todo|
       li.todo id="todo-#{todo.id}" data-id="#{todo.id}"
+        a.btn.btn-mini.btn-success.post-time
+          i.icon-time.icon-white
+          |  Post time
+        | &nbsp;
         = todo.content
-        a.btn.post-time Post time
 
 #time-entry-form
   = render 'time_entries/form', time_entry: current_user.time_entries.build

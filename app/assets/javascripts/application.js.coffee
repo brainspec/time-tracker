@@ -4,7 +4,7 @@
 jQuery ($) ->
   form = ($ '#time-entry-form')
 
-  ($ '.todo').delegate '.close', 'click', ->
+  ($ '.todo').delegate '.cancel', 'click', ->
     ($ @).closest('.todo').find('.post-time').show()
     ($ @).closest('form').remove()
 

@@ -28,3 +28,17 @@ body {
 .hidden {
   display: none;
 }
+
+.todos {
+  list-style: none;
+  margin-left: 0;
+}
+
+.todo {
+  margin: 4px 0;
+  font-size: 14px;
+
+  a {
+    color: #333;
+  }
+}

@@ -30,6 +30,8 @@ gem 'faraday_middleware'
 
 gem 'simple_form'
 
+gem 'unicorn'
+
 group :development, :test do
   gem 'fabrication'
   gem 'rspec-rails'

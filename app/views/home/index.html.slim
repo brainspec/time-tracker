@@ -8,6 +8,9 @@
           |  Post time
         | &nbsp;
         = todo.content
+        | &nbsp;
+        span.label.label-info.total-todo-time class="#{'hidden' if !(todo_total = TimeEntry.todo_total_time(todo.id)) || todo_total <= 0 }"
+          = TimeEntry.todo_total_time(todo.id)
 
 #time-entry-form
   = render 'time_entries/form', time_entry: current_user.time_entries.build

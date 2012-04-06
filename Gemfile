@@ -36,6 +36,7 @@ group :development, :test do
 end
 
 group :test do
+  gem 'delorean'
   gem 'database_cleaner'
 end
 

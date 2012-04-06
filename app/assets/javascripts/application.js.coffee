@@ -13,3 +13,4 @@ jQuery ($) ->
     todo = ($ @).closest('.todo')
     todo.append form.html()
     ($ '#time_entry_todo_id', todo).val todo.data('id')
+    ($ '#time_entry_hours', todo).focus()

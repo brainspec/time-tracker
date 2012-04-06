@@ -1,0 +1,14 @@
+#!/bin/bash
+set -e
+
+md5() { openssl md5 $*; }
+
+if [ ! -f .bundle/checksum ] || [[ "`md5 Gemfile*`" != "`cat .bundle/checksum`" ]]; then
+  bundle install \
+    --path vendor/bundle
+  md5 Gemfile* > .bundle/checksum
+fi
+
+for conf in mongoid config; do
+  [ ! -f config/$conf.yml ] && cp config/$conf.example.yml config/$conf.yml
+done

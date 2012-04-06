@@ -1,0 +1,3 @@
+```ruby
+./script/bootstrap
+```

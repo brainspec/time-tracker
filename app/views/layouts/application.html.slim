@@ -14,7 +14,7 @@ html
             - if current_user
               ul.nav.pull-right
                 li.total-posted-time.badge.badge-success
-                  = link_to "Today posted time: #{current_user.today_total_time} hours", [:time_entries]
+                  = current_user.decorate.today_total_time
                 li = link_to 'Sign out', session_path, method: 'delete'
 
     .container

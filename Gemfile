@@ -28,6 +28,7 @@ gem 'slim'
 gem 'faraday'
 gem 'faraday_middleware'
 
+gem 'draper'
 gem 'simple_form'
 
 gem 'unicorn'

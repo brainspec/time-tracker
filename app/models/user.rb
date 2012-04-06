@@ -1,6 +1,8 @@
 class User
   include Mongoid::Document
 
+  include Draper::ModelSupport
+
   field :uid,  type: String
   field :name, type: String
 

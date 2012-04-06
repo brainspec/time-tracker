@@ -9,6 +9,10 @@ class ApplicationController < ActionController::Base
 
   def current_user
     @current_user ||= session[:user_id] && User.find(session[:user_id])
+  rescue Mongoid::Errors::DocumentNotFound
+    session.clear
+
+    nil
   end
 
   def require_user

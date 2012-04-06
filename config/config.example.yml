@@ -1,3 +1,4 @@
 37signals_id:     'CLIENT_ID'
 37signals_secret: 'CLIENT_SECRET'
 account_id:       'ACCOUNT_ID'
+office_ip:        '127.0.0.1'

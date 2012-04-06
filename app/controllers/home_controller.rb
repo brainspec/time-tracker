@@ -24,4 +24,8 @@ class HomeController < ApplicationController
       @todo_lists = response.body
     end
   end
+
+  def access_denied
+    redirect_to root_url if request.ip == ENV['OFFICE_IP']
+  end
 end

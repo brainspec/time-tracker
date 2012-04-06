@@ -13,6 +13,11 @@ class TimeEntry
 
   validates :hours, presence: true, numericality: {greater_than: 0}
 
+  scope :this_day, lambda {
+    where(:created_at.gte => Time.now.beginning_of_day,
+          :created_at.lte => Time.now)
+  }
+
   def hours=(h)
     write_attribute :hours, (h.is_a?(String) ? (h.to_hours || h) : h)
   end

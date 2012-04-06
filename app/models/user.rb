@@ -19,8 +19,7 @@ class User
   end
 
   def today_total_time
-    total = time_entries.where(:created_at.gte => Time.now.beginning_of_day,
-                               :created_at.lte => Time.now).sum(:hours)
+    total = time_entries.this_day.sum(:hours)
     total ||= 0
     total.round(2)
   end

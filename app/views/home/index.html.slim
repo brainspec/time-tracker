@@ -1,5 +1,9 @@
 - @todo_lists.each do |list|
-  h3 = link_to list.name, basecamp_url(list.url)
+  h3
+    = link_to list.name, basecamp_url(list.url)
+    - project = project_by_todo_list_url(list.url)
+    | &nbsp;&mdash;&nbsp;
+    = link_to project.name, basecamp_url(project.url)
   ul
     - list.assigned_todos.each do |todo|
       li.todo id="todo-#{todo.id}" data-id="#{todo.id}"

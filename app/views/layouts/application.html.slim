@@ -1,0 +1,28 @@
+doctype html
+html
+  head
+    title TimeTracker
+    = stylesheet_link_tag    'application', :media => 'all'
+    = javascript_include_tag 'application'
+    = csrf_meta_tags
+  body
+    .navbar.navbar-fixed-top
+      .navbar-inner
+        .container-fluid
+          = link_to 'TimeTracker', root_path, class: 'brand'
+          .nav-collapse
+
+    .container-fluid
+      - if notice
+        div.alert.alert-success
+          a.close data-dismiss="alert" href="#" &times;
+          = notice
+      - if alert
+        div.alert.alert-error
+          a.close data-dismiss="alert" href="#" &times;
+          = alert
+
+      = yield
+
+      hr
+      footer &copy; Twinslash

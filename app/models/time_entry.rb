@@ -1,5 +1,6 @@
 class TimeEntry
   include Mongoid::Document
+  include Mongoid::Timestamps
 
   field :user_id, :type => Integer
   field :todo_id, :type => Integer

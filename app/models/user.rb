@@ -17,4 +17,10 @@ class User
       end
     end
   end
+
+  def today_total_time
+    total = time_entries.where(:created_at.gte => Time.now.beginning_of_day,
+                               :created_at.lte => Time.now).sum(:hours)
+    total.round(2) if total
+  end
 end

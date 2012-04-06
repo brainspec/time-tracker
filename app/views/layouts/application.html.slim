@@ -13,6 +13,9 @@ html
           .nav-collapse
             - if current_user
               ul.nav.pull-right
+                li
+                  | Today posted time:
+                  = " #{current_user.today_total_time} hours"
                 li = link_to 'Sign out', session_path, method: 'delete'
 
     .container

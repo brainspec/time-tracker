@@ -1,1 +1,7 @@
 = button_to 'Sign out', session_path, method: 'delete', class: 'btn'
+
+- @todo_lists.each do |list|
+  h3 = list.name
+  ul
+    - list.assigned_todos.each do |todo|
+      li= todo.content

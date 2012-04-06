@@ -13,7 +13,7 @@
         | &nbsp;
         = todo.content
         | &nbsp;
-        span.label.label-info.total-todo-time class="#{'hidden' if !(todo_total = TimeEntry.todo_total_time(todo.id)) || todo_total <= 0 }"
+        span.badge.badge-info.total-todo-time class="#{'hidden' if !(todo_total = TimeEntry.todo_total_time(todo.id)) || todo_total <= 0 }"
           = todo_total
 
 #time-entry-form

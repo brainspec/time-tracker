@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
   end
 
   def require_user
-    redirect_to new_session_path unless current_user
+    redirect_to new_session_path unless current_user || rendered_403?
   end
 
   def rendered_403?

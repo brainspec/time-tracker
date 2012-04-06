@@ -11,7 +11,7 @@ div.time-entries
         - time_entries.each do |entry|
           tr
             td = entry.title
-            td = entry.hours
+            td = entry.hours.round(2)
             td = entry.comment
             td = link_to 'Delete', [entry], method: :delete, class: 'btn btn-danger btn-mini', confirm: 'Sure?', remote: true
   - else

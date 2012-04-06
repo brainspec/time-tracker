@@ -6,6 +6,12 @@ class TimeEntriesController < ApplicationController
     @time_entry.save
   end
 
+  def destroy
+    @time_entry = current_user.time_entries.find(params[:id])
+    @time_entry.destroy
+    render nothing: true
+  end
+
   private
 
   def time_entry_params

@@ -13,7 +13,7 @@ class TimeEntriesController < ApplicationController
   def destroy
     @time_entry = current_user.time_entries.this_day.find(params[:id])
     @time_entry.destroy
-    render nothing: true
+    @time_entries = current_user.time_entries.this_day
   end
 
   private

@@ -1,5 +1,3 @@
 h2 What have I done?
-- @time_entries.each do |entry|
-  ul
-    li
-      = entry.hours
+
+= render 'table', time_entries: @time_entries

@@ -8,5 +8,5 @@ todo = ($ "#todo-<%= @time_entry.todo_id %>")
 <% if todo_total && todo_total > 0 %>
 ($ '.total-todo-time', todo).removeClass('hidden')
 <% end %>
-($ 'li.total-posted-time').html('<%= "Today posted time: #{current_user.today_total_time} hours" %>')
+($ 'li.total-posted-time > a').html('<%= j "Today posted time: #{current_user.today_total_time} hours" %>')
 <% end %>

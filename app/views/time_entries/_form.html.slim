@@ -2,7 +2,7 @@
   = f.input :todo_id, as: 'hidden'
   = f.input :title,   as: 'hidden'
   = f.input :hours
-  = f.input :comment
+  = f.input :comment, placeholder: 'Optional comment...'
   = f.button :submit, class: 'btn-primary'
   | &nbsp;
   a.cancel href="#" Cancel

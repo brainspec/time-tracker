@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
   end
 
   def verify_ip_address!
-    unless request.ip == ENV['OFFICE_IP'] || rendered_403?
+    if ENV['OFFICE_IP'].present? && request.ip != ENV['OFFICE_IP'] && !rendered_403?
       redirect_to '/403'
     end
   end

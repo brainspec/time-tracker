@@ -18,11 +18,12 @@ class Basecamp
 
   def connection
     @connection ||= Faraday.new(:url => 'https://basecamp.com/') do |builder|
+      builder.request :json
       builder.response :logger
-      builder.use Faraday::Request::JSON
-      builder.use FaradayMiddleware::Mashify
-      builder.use FaradayMiddleware::ParseJson
-      builder.adapter :net_http
+      builder.response :mashify
+      builder.response :json, :content_type => /\bjson$/
+      builder.use :instrumentation
+      builder.adapter Faraday.default_adapter
     end
   end
 

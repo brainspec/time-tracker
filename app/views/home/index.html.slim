@@ -1,9 +1,9 @@
 - @todo_lists.each do |list|
   h3
-    = link_to list.name, basecamp_url(list.url)
-    - project = project_by_todo_list_url(list.url)
+    = link_to list.name, basecamp_url(list)
+    - project = todo_list_project(list)
     | &nbsp;&mdash;&nbsp;
-    = link_to project.name, basecamp_url(project.url)
+    = link_to project.name, basecamp_url(project)
   ul.todos
     - list.assigned_todos.each do |todo|
       li.todo id="todo-#{todo.id}" data-id="#{todo.id}" data-title="#{[project.name, list.name, todo.content].join(' | ')}"
@@ -13,7 +13,7 @@
         span.badge.badge-info.total-todo-time class="#{'hidden' if !(todo_total = TimeEntry.todo_total_time(todo.id)) || todo_total <= 0 }"
           = todo_total
         | &nbsp;
-        = link_to todo.content, basecamp_url(todo.url)
+        = link_to todo.content, basecamp_url(todo)
 
 #time-entry-form
   = render 'time_entries/form', time_entry: current_user.time_entries.build

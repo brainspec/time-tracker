@@ -6,8 +6,12 @@ class Basecamp
   attr_reader :token
 
   def assigned_todos
-    person = request('/people/me.json')
-    request("people/#{person.id}/assigned_todos.json")
+    person = request('/people/me')
+    request("/people/#{person.id}/assigned_todos")
+  end
+
+  def projects
+    request('/projects')
   end
 
   private
@@ -24,7 +28,7 @@ class Basecamp
 
   def request(path)
     response = connection.get do |req|
-      req.url "/#{ENV['ACCOUNT_ID']}/api/v1/#{path}"
+      req.url "/#{ENV['ACCOUNT_ID']}/api/v1#{path}.json"
 
       req.headers['Authorization'] = "Bearer #{token}"
       req.headers['User-Agent']    = "TimeTracker"

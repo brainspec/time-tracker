@@ -27,7 +27,7 @@ class TimeEntry
   end
 
   def self.todo_total_time(todo_id)
-    total = where(todo_id: todo_id ).sum(:hours)
+    total = where(todo_id: todo_id).sum(:hours)
     total.round(2) if total
   end
 

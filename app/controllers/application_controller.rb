@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   before_filter :require_user
 
   helper_method :current_user
+  helper_method :current_token
 
   private
 
@@ -14,6 +15,10 @@ class ApplicationController < ActionController::Base
     session.clear
 
     nil
+  end
+
+  def current_token
+    current_user && current_user.token
   end
 
   def verify_ip_address!

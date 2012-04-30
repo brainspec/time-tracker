@@ -33,6 +33,10 @@ gem 'simple_form'
 
 gem 'unicorn'
 
+group :development do
+  gem 'thin'
+end
+
 group :development, :test do
   gem 'fabrication'
   gem 'rspec-rails'

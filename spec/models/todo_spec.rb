@@ -13,7 +13,7 @@ describe Todo do
     end
 
     it 'updates todo' do
-      todo = double
+      todo = stub_model(Todo)
       todo.should_receive(:save!)
       Todo.should_receive(:find) { todo }
       Todo.find_or_create_by_bcx_hash(bcx_hash).should == todo

@@ -16,7 +16,7 @@ class Todo
       find_or_initialize_by(bcx_id: bcx_hash.id).tap do |todo|
         todo.created_at    = bcx_hash.created_at
         todo.title         = bcx_hash.content
-        todo.first_comment = bcx_hash.comments.first.content
+        todo.first_comment = bcx_hash.comments.first.content if bcx_hash.comments.any?
         todo.save!
       end
     end

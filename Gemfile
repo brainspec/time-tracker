@@ -35,6 +35,7 @@ gem 'unicorn'
 
 group :development do
   gem 'thin'
+  gem 'heroku', require: false
 end
 
 group :development, :test do

@@ -15,12 +15,12 @@ class TimeEntry
 
   validates :hours, presence: true, numericality: {greater_than: 0}
 
+  validate :overdue_today_total_time
+
   scope :this_day, lambda {
     where(:created_at.gte => Time.now.beginning_of_day,
           :created_at.lte => Time.now)
   }
-
-  before_save :overdue_today_total_time
 
   def hours=(h)
     write_attribute :hours, (h.is_a?(String) ? (h.to_hours || h) : h)
@@ -38,9 +38,6 @@ class TimeEntry
 
     if today_total_time > MAX_TODAY_TOTAL_TIME
       errors.add(:hours, I18n.t(:overdue_total_time, :overdue => (today_total_time - MAX_TODAY_TOTAL_TIME)))
-      return false
     end
-
-    true
   end
 end

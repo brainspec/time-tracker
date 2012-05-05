@@ -1,5 +1,14 @@
 h3 Time report
 
+= form_tag report_url, class: 'form-inline', method: 'get' do
+  = label_tag :posted_at, 'Posted at', class: 'control-label input'
+  | &nbsp;
+  = text_field_tag :created_at_gte, params[:created_at_gte] || Date.today.beginning_of_month, class: 'datepicker input-small'
+  | &nbsp;
+  = text_field_tag :created_at_lte, params[:created_at_lte] || Date.today, class: 'datepicker input-small'
+  | &nbsp;
+  = submit_tag 'Filter', class: 'btn'
+
 table.table.table-bordered.table-stripped
   thead
     tr

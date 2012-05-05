@@ -1,5 +1,7 @@
 #= require jquery
 #= require jquery_ujs
+#= require bootstrap-datepicker
+
 
 jQuery ($) ->
   form = ($ '#time-entry-form')
@@ -15,3 +17,5 @@ jQuery ($) ->
     ($ '#time_entry_todo_id',    todo).val todo.data('id')
     ($ '#time_entry_title',      todo).val todo.data('title')
     ($ '#time_entry_hours', todo).focus()
+
+  ($ '.datepicker').datepicker(format: "yyyy-mm-dd")

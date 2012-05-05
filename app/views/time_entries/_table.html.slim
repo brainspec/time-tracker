@@ -11,8 +11,8 @@ div.time-entries
       tbody
         - time_entries.each do |entry|
           tr
-            td = entry.project.name
-            td = entry.title
+            td = link_to entry.project.name, basecamp_project_url(entry.todo.project)
+            td = link_to entry.title, basecamp_todo_url(entry.todo)
             td = entry.hours.round(2)
             td = entry.comment
             td = link_to 'Delete', [entry], method: :delete, class: 'btn btn-danger btn-mini', confirm: 'Sure?', remote: true

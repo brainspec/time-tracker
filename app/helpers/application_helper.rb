@@ -15,4 +15,12 @@ module ApplicationHelper
     link = content_tag(:a, name, href: url)
     content_tag(:li, link, class: request.url == url ? 'active' : '')
   end
+
+  def basecamp_project_url(project)
+    "https://basecamp.com/#{ENV['ACCOUNT_ID']}/projects/#{project.bcx_id}"
+  end
+
+  def basecamp_todo_url(todo)
+    "#{basecamp_project_url(todo.project)}/todos/#{todo.bcx_id}"
+  end
 end

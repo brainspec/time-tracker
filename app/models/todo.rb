@@ -1,8 +1,11 @@
 class Todo
   include Mongoid::Document
 
+  field :project_id, type: Integer
   field :bcx_id, type: Integer
   field :created_at, type: Time
+
+  belongs_to :project
 
   has_many :time_entries
 

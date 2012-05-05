@@ -3,13 +3,15 @@ div.time-entries
     table.table.table-bordered.table-striped
       thead
         tr
-          th Task
+          th Project
+          th Todo
           th Hours
           th Comment
           th
       tbody
         - time_entries.each do |entry|
           tr
+            td = entry.project.name
             td = entry.title
             td = entry.hours.round(2)
             td = entry.comment

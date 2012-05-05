@@ -36,7 +36,9 @@ class TimeEntriesController < ApplicationController
   def todo
     @todo ||= begin
       hash = Basecamp.new(current_token).todo(*params[:time_entry].slice(:project_id, :todo_id).values)
-      project.todos.find_or_create_by_bcx_hash(hash)
+      Todo.find_or_create_by_bcx_hash(hash) do |todo|
+        todo.project = project
+      end
     end
   end
 end

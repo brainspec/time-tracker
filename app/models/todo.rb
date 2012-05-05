@@ -17,6 +17,7 @@ class Todo
         todo.created_at    = bcx_hash.created_at
         todo.title         = bcx_hash.content
         todo.first_comment = bcx_hash.comments.first.content if bcx_hash.comments.any?
+        yield todo if block_given?
         todo.save!
       end
     end

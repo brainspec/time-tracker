@@ -19,6 +19,6 @@ class Todo
   end
 
   def total_hours
-    time_entries.sum(:hours)
+    time_entries.sum(:hours) || 0
   end
 end

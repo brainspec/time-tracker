@@ -14,6 +14,14 @@ class Basecamp
     request('/projects')
   end
 
+  def project(id)
+    request("/projects/#{id}")
+  end
+
+  def todo(project_id, todo_id)
+    request("/projects/#{project_id}/todos/#{todo_id}")
+  end
+
   private
 
   def connection

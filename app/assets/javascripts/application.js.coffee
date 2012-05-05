@@ -6,7 +6,8 @@
 jQuery ($) ->
   form = ($ '#time-entry-form')
 
-  ($ '.todo').delegate '.cancel', 'click', ->
+  ($ '.todo').delegate '.cancel', 'click', (event) ->
+    event.preventDefault()
     ($ @).closest('form').remove()
 
   ($ '.todo .post-time').click ->

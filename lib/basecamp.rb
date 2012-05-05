@@ -18,8 +18,8 @@ class Basecamp
     request("/projects/#{id}")
   end
 
-  def todo(project_id, todo_id)
-    request("/projects/#{project_id}/todos/#{todo_id}")
+  def todo(project_id, id)
+    request("/projects/#{project_id}/todos/#{id}")
   end
 
   private

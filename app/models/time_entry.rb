@@ -2,16 +2,18 @@ class TimeEntry
   include Mongoid::Document
   include Mongoid::Timestamps
 
-  field :user_id, type: Integer
-  field :todo_id, type: Integer
-  field :hours,   type: Float
-  field :comment, type: String
+  field :user_id,     type: Integer
+  field :todo_id,     type: Integer
+  field :bcx_todo_id, type: Integer
+  field :hours,       type: Float
+  field :comment,     type: String
 
   field :title, type: String
 
   MAX_TODAY_TOTAL_TIME = 16
 
   belongs_to :user
+  belongs_to :todo
 
   validates :hours, presence: true, numericality: {greater_than: 0}
 

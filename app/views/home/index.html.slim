@@ -6,7 +6,7 @@
     = link_to project.name, basecamp_url(project)
   ul.todos
     - list.assigned_todos.each do |todo|
-      li.todo id="todo-#{todo.id}" data-id="#{todo.id}" data-title="#{[project.name, list.name, todo.content].join(' | ')}"
+      li.todo id="todo-#{todo.id}" data-id="#{todo.id}" data-project_id="#{todo_list_project(list).id}" data-title="#{[project.name, list.name, todo.content].join(' | ')}"
         a.btn.btn-mini.btn-success.post-time
           i.icon-time.icon-white
         | &nbsp;

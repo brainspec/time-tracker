@@ -1,6 +1,7 @@
 = simple_form_for time_entry, remote: true do |f|
-  = f.input :todo_id, as: 'hidden'
-  = f.input :title,   as: 'hidden'
+  = f.hidden_field :project_id
+  = f.hidden_field :todo_id
+  = f.hidden_field :title
   = f.input :hours
   = f.input :comment, placeholder: 'Optional comment...'
   = f.button :submit, class: 'btn-primary'

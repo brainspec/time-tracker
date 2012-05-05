@@ -7,6 +7,7 @@ class User
   field :name, type: String
 
   field :token, type: String
+  field :refresh_token, type: String
 
   has_many :time_entries
 
@@ -15,6 +16,7 @@ class User
       User.find_or_initialize_by(uid: auth_hash.uid).tap do |user|
         user.name  = auth_hash.info.name
         user.token = auth_hash.credentials.token
+        user.refresh_token = auth_hash.credentials.refresh_token
         user.save!
       end
     end

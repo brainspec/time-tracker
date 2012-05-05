@@ -10,6 +10,7 @@ describe Todo do
     it 'creates todo' do
       todo = Todo.find_or_create_by_bcx_hash(bcx_hash)
       todo.bcx_id.should == 1
+      todo.created_at.should == Time.parse('2012-03-24T09:53:35-05:00')
     end
 
     it 'updates todo' do

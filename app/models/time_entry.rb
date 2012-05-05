@@ -38,7 +38,7 @@ class TimeEntry
 
   def self.created_between(date_from, date_to)
     created_at_gte = (Time.zone.parse(date_from) || Time.zone.now - 1.month).beginning_of_day
-    created_at_lte = (Time.zone.parse(date_to) || Time.zone.now).beginning_of_day
+    created_at_lte = (Time.zone.parse(date_to) || Time.zone.now).end_of_day
 
     self.where(:created_at.gte => created_at_gte, :created_at.lte => created_at_lte)
   end

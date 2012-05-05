@@ -20,7 +20,7 @@ task :create_todos_from_time_entries => :environment do
       todo = Todo.find_or_create_by_bcx_hash(bcx_hash)
       time_entry.update_attributes(todo_id: todo.id, bcx_todo_id: bcx_hash.id)
     else
-      time_entry.update_attributes(todo_id: nil, bcx_todo_id: bcx_hash.id)
+      time_entry.update_attributes(todo_id: nil, bcx_todo_id: time_entry.todo_id)
     end
   end
 end

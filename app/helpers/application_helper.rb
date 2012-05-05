@@ -5,10 +5,18 @@ module ApplicationHelper
   end
 
   def todo_list_project(todo_list)
-    @projects ||= Basecamp.new(current_token).projects
-
     bcx_id = todo_list.url.match(/\/projects\/(\d+)/).captures.first.to_i
-    @projects.find { |p| p.id == bcx_id }
+
+    Project.where(bcx_id: bcx_id).first || begin
+      matched_project = nil
+
+      Basecamp.new(current_token).projects.each do |bcx_hash|
+        project = Project.find_or_create_by_bcx_hash(bcx_hash)
+        matched_project = project if project.bcx_id == bcx_id
+      end
+
+      matched_project
+    end
   end
 
   def navigation_item(name, url)

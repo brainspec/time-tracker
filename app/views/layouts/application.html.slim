@@ -10,7 +10,10 @@ html
       .navbar-inner
         .container
           = link_to 'Time Tracker', root_path, class: 'brand'
-          .nav-collapse
+          .nav-collapse.collapse
+            ul.nav
+              = navigation_item('Dash', root_url)
+              = navigation_item('Reports', report_url)
             - if current_user
               ul.nav.pull-right
                 li.total-posted-time.badge.badge-success

@@ -7,3 +7,7 @@ if mongo = ENV['MONGOHQ_URL'] || ENV['MONGOLAB_URI']
     config.master.authenticate(settings.user, settings.password) if settings.user
   end
 end
+
+Mongoid.configure do |config|
+  config.identity_map_enabled = true
+end

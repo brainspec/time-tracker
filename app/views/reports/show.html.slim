@@ -6,7 +6,6 @@ table.table.table-bordered.table-stripped
       th Project
       th Todo
       th Todo 1st comment
-      th Last comment date
       th Hours
       th Posted at
       th Entry Comment
@@ -16,7 +15,6 @@ table.table.table-bordered.table-stripped
         td = time_entry.project.name
         td = time_entry.todo && time_entry.todo.title
         td = time_entry.todo && raw(time_entry.todo.first_comment)
-        td
         td = time_entry.hours.round(2)
         td = l(time_entry.created_at, format: :short)
         td = time_entry.comment

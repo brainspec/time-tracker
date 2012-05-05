@@ -7,7 +7,7 @@
   ul.todos
     - list.assigned_todos.each do |bcx_todo|
       - todo = Todo.where(bcx_id: bcx_todo.id).first
-      li.todo id="todo-#{bcx_todo.id}" data-id="#{bcx_todo.id}" data-project_id="#{todo_list_project(list).id}" data-title="#{[project.name, list.name, bcx_todo.content].join(' | ')}"
+      li.todo id="todo-#{bcx_todo.id}" data-id="#{bcx_todo.id}" data-project_id="#{todo_list_project(list).id}" data-title="#{[list.name, bcx_todo.content].join(' | ')}"
         a.btn.btn-mini.btn-success.post-time
           i.icon-time.icon-white
         | &nbsp;

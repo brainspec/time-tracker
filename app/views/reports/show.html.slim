@@ -21,8 +21,8 @@ table.table.table-bordered.table-stripped
   tbody
     - @time_entries.each do |time_entry|
       tr
-        td = time_entry.project.name
-        td = time_entry.todo && time_entry.todo.title
+        td = link_to time_entry.project.name, basecamp_project_url(time_entry.project)
+        td = link_to time_entry.todo && time_entry.todo.title, basecamp_todo_url(time_entry.todo)
         td = time_entry.todo && raw(time_entry.todo.first_comment)
         td = time_entry.hours.round(2)
         td = l(time_entry.created_at, format: :short)

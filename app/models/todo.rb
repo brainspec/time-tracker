@@ -24,6 +24,7 @@ class Todo
   end
 
   def total_hours
-    time_entries.sum(:hours) || 0
+    total = time_entries.sum(:hours) || 0
+    total.round(2)
   end
 end

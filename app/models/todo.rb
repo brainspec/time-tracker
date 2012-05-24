@@ -1,6 +1,8 @@
 class Todo
   include Mongoid::Document
 
+  include Draper::ModelSupport
+
   field :project_id,    type: Integer
   field :bcx_id,        type: Integer
   field :created_at,    type: Time

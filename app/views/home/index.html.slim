@@ -12,7 +12,7 @@
           i.icon-time.icon-white
         | &nbsp;
         span.badge.badge-info.total-todo-time class="#{'hidden' unless todo && todo.total_hours > 0}"
-          = todo.total_hours if todo
+          = todo.decorate.total_hours if todo
         | &nbsp;
         = link_to bcx_todo.content, basecamp_url(bcx_todo)
 
